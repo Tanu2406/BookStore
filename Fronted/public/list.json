@@ -1,0 +1,13 @@
+
+[
+    { "id": 1, "img": "../src/assets/card1.webp", "name": "Sports Book", "category": "Free", "desc": "This book gives you inspiration in the sports field.", "price": "$0", "btn3": "Buy Now" },
+    { "id": 2, "img": "../src/assets/card2.jpeg", "name": "Programming Book", "category": "Free", "desc": "This book provides knowledge of various programming languages.", "price": "$0", "btn3": "Buy Now" },
+    { "id": 3, "img": "../src/assets/card6.jpeg", "name": "Story Book", "category": "story", "desc": "Enjoy lots of fun and interesting stories and spend time with book.", "price": "$200", "btn3": "Buy Now" },
+    { "id": 4, "img": "../src/assets/card7.jpeg", "name": "Gaming Book", "category": "Free", "desc": "Learn about gaming and have fun!", "price": "$0", "btn3": "Buy Now" },
+    { "id": 5, "img": "../src/assets/card3.webp", "name": "Poetry Book", "category": "poem", "desc": "A collection of beautiful poems.", "price": "$100", "btn3": "Buy Now" },
+    { "id": 6, "img": "../src/assets/card5.jpeg", "name": "Drama Book", "category": "drama", "desc": "A book filled with different drama stories.", "price": "$150", "btn3": "Buy Now" },
+    { "id": 7, "img": "../src/assets/card9.jpeg", "name": "Horror Book", "category": "Free", "desc": "Spooky and thrilling horror stories.", "price": "$0", "btn3": "Buy Now" },
+    { "id": 8, "img": "../src/assets/card10.webp", "name": "Historical Book", "category": "Free", "desc": "Learn about important historical events.", "price": "$0", "btn3": "Buy Now" },
+    { "id": 9, "img": "../src/assets/card8.webp", "name": "Story Book", "category": "story", "desc": "Enjoy lots of fun and interesting stories and spend time with book.", "price": "$200", "btn3": "Buy Now" },
+    { "id": 10, "img": "../src/assets/heroImg.jpeg", "name": "Drama Book", "category": "drama", "desc": "A book filled with different drama stories.", "price": "$150", "btn3": "Buy Now" }
+  ]

@@ -8,7 +8,7 @@ const ContactUs = () => {
     <>
      <div className="flex flex-col min-h-screen">
             <Navbar />
-            
+          
             {/* Main content area - it will expand to push the footer down */}
             <div className="flex-grow flex justify-center items-center md:pt-20">
                 <Contact />

@@ -10,7 +10,7 @@ const Home = () => {
    <Hero/>
    <BookCard/>
    <Footer/>
-   
+  
     </div>
   )
 }

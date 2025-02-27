@@ -1,26 +1,71 @@
 import {React,useEffect }from 'react'
-import { Link } from 'react-router-dom';
+import { Link,  useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Login = ( {visible,onClose}) => {
-    if(!visible) return null;
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+    // if(!visible) return null;
     useEffect(() => {
-        document.body.style.overflow = "hidden";
-        return () => {
+      if (visible) {
+          document.body.style.overflow = "hidden";
+      } else {
           document.body.style.overflow = "auto";
-        };
-      }, []);
+      }
+  
+      return () => {
+          document.body.style.overflow = "auto"; // Always reset when unmounting
+      };
+  }, [visible]); 
 
       const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm();
+
+      const onSubmit = async(data)=>{
+        const userInfo={
+          email:data.email,
+          password:data.password,
+        };
+        await axios.post("http://localhost:4001/user/login",userInfo)
+        .then((res)=>{
+          console.log(res.data)
+          if(res.data){
+           
+            toast.success('Login successfully');
+            // navigate(from, { replace: true });
+           
+            setTimeout(()=>{
+              window.location.reload();
+              localStorage.setItem("User", JSON.stringify(res.data.user));
+           
+            },1000);
+           
+          }
+          
+        }).catch((err)=>{
+          if(err.response){
+            console.log(err)
+            toast.error("Error:"+err.response.data.message);
+            setTimeout(()=>{},2000);
+          }
+          
+        })
+      }
+      if (!visible) {
+        return <></>; // Still renders but remains empty
+      }
   return (
     <>
    <div className='fixed inset-0 bg-opacity-1 backdrop-blur-sm flex justify-center items-center z-50'>
    <div className='m-4 container w-auto h-[85]  bg-white  p-4 border border-pink-300 rounded-2xl '>
-    <form onSubmit={handleSubmit((data) => console.log(data))}>
+    <form onSubmit={handleSubmit(onSubmit)}>
     <div className='flex justify-between mb-4'>
     <h2 className="font-bold text-3xl">Login</h2>
     <button className='font-bold text-xl text-black ' onClick={onClose}> X </button>

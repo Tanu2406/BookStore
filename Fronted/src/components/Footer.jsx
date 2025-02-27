@@ -21,6 +21,7 @@ const Footer = () => {
       </div>
       <div className="mt-4 text-sm">Copyright 2024-All right reserved by ACME industries ltd</div>
       </div>
+     
       
     </>
    

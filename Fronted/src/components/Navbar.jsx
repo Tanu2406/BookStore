@@ -3,29 +3,37 @@ import book from "../assets/book.avif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faMoon, faBars } from "@fortawesome/free-solid-svg-icons";
 import Login from "./Login";
-import SignUp from "./SignUp";
+import Logout from "./Logout";
+import { useAuth } from "../context/AuthProvider";
 
 const Navbar = () => {
+  
   const navItem = (
     <>
     <li >
       <a href="/">Home</a>
     </li>
     <li >
-      <a href="course">Course</a>
+      <a href="/course">Course</a>
     </li>
     <li >
-      <a  href="contact" >Contact</a>
+      <a  href="/contact" >Contact</a>
     </li>
     <li >
-      <a href="about">About</a>
+      <a href="/about">About</a>
     </li>
     </>
   );
+  const [authUser,setAuthUser] = useAuth(); // ✅ Correct way
+
   const [isOpen, setIsOpen] = useState(false);
   const [showMyModal,setShowMyModal] = useState(false);
+  //const [forceRender, setForceRender] = useState(false); 
   const handleOnClose = ()=>setShowMyModal(false);
-
+//  useEffect(() => {
+//     console.log("Navbar updated. AuthUser:", authUser);
+//     setForceRender((prev) => !prev); 
+//   }, [authUser]); 
   
   return (
     <>
@@ -36,12 +44,12 @@ const Navbar = () => {
           <div className="flex items-center ml-2">
             {/* Hamburger Menu (Visible on small screens) */}
             <div className="lg:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon className="text-xl" icon={faBars} />
             </div>
 
             {/* Logo */}
             <img src={book} className="md:w-[4rem] md:h-[4rem] w-8 h-8 ml-2" alt="Book Logo" />
-            <p className="font-bold md:text-2xl ml-2 cursor-pointer">BookStore</p>
+            <p className="font-bold text-2xl  ml-2 cursor-pointer">BookStore</p>
           </div>
 
           {/* Right Section (Menu + Icons) */}
@@ -52,21 +60,36 @@ const Navbar = () => {
             </ul>
 
             {/* Search Input (Hidden on small screens) */}
-            <div className="hidden lg:flex items-center space-x-2 border border-gray-100  outline-none rounded-md px-2 py-2">
+            <div className="hidden lg:flex items-center space-x-2  border border-gray-100  outline-none rounded-md px-2 py-2">
               <input  type="search" placeholder="Search" />
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </div>
             
-         {/* Search Icon (For Small Screens) */}  <div className="lg:hidden">   
+         {/* Search Icon (For Small Screens) */}  <div className="lg:hidden text-xl">   
             <FontAwesomeIcon icon={faMagnifyingGlass} />
             </div> 
             {/* Moon Icon */}
-            <FontAwesomeIcon icon={faMoon} onClick={()=>setTheme(theme==="light"?"dark":"light")} />
+            <FontAwesomeIcon className="text-xl" icon={faMoon} onClick={()=>setTheme(theme==="light"?"dark":"light")} />
+
+            {authUser ? (
+                    <Logout />
+                  
+                  ) : (
+                    <button className="!bg-black font-bold !text-white px-4 py-2 rounded mt-1 hover:!bg-gray-600" onClick={() => setShowMyModal(true)}>
+                      Login
+                    </button>
+                  )}
+{/* 
+              {authUser?(
+                <Logout/>
+              ):(<button className="!bg-black hidden lg:block font-bold text-white px-4 py-2 rounded mr-8 hover:!bg-gray-600" onClick={()=> setShowMyModal(true)}>
+              Login
+            </button>)} */}
 
             {/* Login Button (Only on large screens) */}
-            <button className="!bg-black hidden lg:block font-bold text-white px-4 py-2 rounded mr-8 hover:!bg-gray-600" onClick={()=> setShowMyModal(true)}>
+            {/* <button className="!bg-black hidden lg:block font-bold text-white px-4 py-2 rounded mr-8 hover:!bg-gray-600" onClick={()=> setShowMyModal(true)}>
               Login
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -76,10 +99,17 @@ const Navbar = () => {
             <ul className="space-y-4 text-center ">
                    {navItem}
             </ul>
+            {/* {authUser ? (
+                    <Logout />
+                  ) : (
+                    <button className="!bg-black font-bold text-white px-4 py-2 rounded mt-4 hover:!bg-gray-600" onClick={() => setShowMyModal(true)}>
+                      Login
+                    </button>
+                  )} */}
             {/* Login Button (Only in mobile menu) */}
-            <button className="!bg-black font-bold text-white px-4 py-2 rounded mt-4 hover:!bg-gray-600 " onClick={()=> setShowMyModal(true)}>
+            {/* <button className="!bg-black font-bold text-white px-4 py-2 rounded mt-4 hover:!bg-gray-600 " onClick={()=> setShowMyModal(true)}>
               Login
-            </button>
+            </button> */}
           </div>
         )}
           <Login onClose={handleOnClose} visible={showMyModal}/>

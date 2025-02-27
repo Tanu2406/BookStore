@@ -8,7 +8,7 @@ const AboutUs = () => {
     <div className="flex flex-col min-h-screen">
     <Navbar />
     
-    {/* Main content area - it will expand to push the footer down */}
+   
     <div className="flex-grow flex justify-center items-center pt-18 md:pt-24">
         <About/>
     </div>

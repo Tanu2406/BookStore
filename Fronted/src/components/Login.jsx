@@ -18,7 +18,7 @@ const Login = ( {visible,onClose}) => {
       }
   
       return () => {
-          document.body.style.overflow = "auto"; // Always reset when unmounting
+          document.body.style.overflow = "auto"; 
       };
   }, [visible]); 
 
@@ -59,7 +59,7 @@ const Login = ( {visible,onClose}) => {
         })
       }
       if (!visible) {
-        return <></>; // Still renders but remains empty
+        return <></>; 
       }
   return (
     <>

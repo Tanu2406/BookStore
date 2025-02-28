@@ -16,18 +16,18 @@ const settings = {
   pauseOnHover: true,
   pauseOnFocus: true,
   adaptiveHeight: true,
-  centerMode: false, // Disabled by default
+  centerMode: false, 
   responsive: [
     {
-      breakpoint: 1024, // Tablets
+      breakpoint: 1024, 
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        centerMode: false, // Disabled to avoid overlap
+        centerMode: false, 
       },
     },
     {
-      breakpoint: 768, // Mobile screens
+      breakpoint: 768, 
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,

@@ -28,12 +28,7 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [showMyModal,setShowMyModal] = useState(false);
-  //const [forceRender, setForceRender] = useState(false); 
   const handleOnClose = ()=>setShowMyModal(false);
-//  useEffect(() => {
-//     console.log("Navbar updated. AuthUser:", authUser);
-//     setForceRender((prev) => !prev); 
-//   }, [authUser]); 
   
   return (
     <>
@@ -79,17 +74,7 @@ const Navbar = () => {
                       Login
                     </button>
                   )}
-{/* 
-              {authUser?(
-                <Logout/>
-              ):(<button className="!bg-black hidden lg:block font-bold text-white px-4 py-2 rounded mr-8 hover:!bg-gray-600" onClick={()=> setShowMyModal(true)}>
-              Login
-            </button>)} */}
 
-            {/* Login Button (Only on large screens) */}
-            {/* <button className="!bg-black hidden lg:block font-bold text-white px-4 py-2 rounded mr-8 hover:!bg-gray-600" onClick={()=> setShowMyModal(true)}>
-              Login
-            </button> */}
           </div>
         </div>
 
@@ -99,17 +84,7 @@ const Navbar = () => {
             <ul className="space-y-4 text-center ">
                    {navItem}
             </ul>
-            {/* {authUser ? (
-                    <Logout />
-                  ) : (
-                    <button className="!bg-black font-bold text-white px-4 py-2 rounded mt-4 hover:!bg-gray-600" onClick={() => setShowMyModal(true)}>
-                      Login
-                    </button>
-                  )} */}
-            {/* Login Button (Only in mobile menu) */}
-            {/* <button className="!bg-black font-bold text-white px-4 py-2 rounded mt-4 hover:!bg-gray-600 " onClick={()=> setShowMyModal(true)}>
-              Login
-            </button> */}
+           
           </div>
         )}
           <Login onClose={handleOnClose} visible={showMyModal}/>

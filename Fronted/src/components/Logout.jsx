@@ -1,11 +1,10 @@
 import React from 'react'
 import { useAuth } from '../context/AuthProvider'
-//import User from '../../../Backend/model/user.model';
 import toast from 'react-hot-toast';
 
 
 const Logout = () => {
-  const [authUser,  setAuthUser ] = useAuth(); // ✅ Correct way
+  const [authUser,  setAuthUser ] = useAuth();
    
   const handleLogout = () => {
     try {

@@ -4,10 +4,8 @@ import Login from './Login'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-//import { useAuth } from "../context/AuthProvider"; 
 
 const SignUp = () => {
-  //const {setAuthUser}   = useAuth(); // ✅ Correct way
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,36 +44,6 @@ const SignUp = () => {
       });
   };
             
-         
-        //  const onSubmit = async(data)=>{
-        //   const userInfo={
-        //     name:data.name,
-        //     email:data.email,
-        //     password:data.password,
-        //   }
-        //   await axios.post("http://localhost:4001/user/signup",userInfo)
-        //   .then((res)=>{
-        //     console.log(res.data)
-        //     if(res.data){
-        //       toast.success('Signup successfully');
-        //       setAuthUser(res.data.user);
-        //       localStorage.setItem("User", JSON.stringify(res.data.user));
-        //       navigate("/", { replace: true });
-        //       setTimeout(()=>{
-        //         window.location.reload();
-                
-        //       },1000);
-        //     }
-           
-        //   }).catch((err)=>{
-        //     if(err.response){
-        //       console.log(err)
-        //       toast.error("Error:"+err.response.data.message);
-        //       setTimeout(()=>{},2000);
-        //     }
-            
-        //   })
-        //  }
   return (
     <>
    <div className='fixed inset-0 bg-opacity-1 backdrop-blur-sm flex justify-center items-center z-50'>

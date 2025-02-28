@@ -18,8 +18,6 @@ function App() {
 
   return (
     <>
-   {/* <Home/>
-   <Course/> */}
    <BrowserRouter>
    <Routes>
     <Route path="/" element={<Home/>}></Route>

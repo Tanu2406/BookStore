@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Card from './Card'
 import {Link} from 'react-router-dom'
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL ;
+const API_BASE_URL = process.env.VITE_BACKEND_URL ;
 const Course = () => {
   const [book,setBook] = useState([]);
   useEffect(()=>{

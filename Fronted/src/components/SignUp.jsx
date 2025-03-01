@@ -4,7 +4,7 @@ import Login from './Login'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL ;
+const API_BASE_URL = process.env.VITE_BACKEND_URL ;
 
 const SignUp = () => {
 

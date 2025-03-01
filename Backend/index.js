@@ -9,11 +9,12 @@ import userRoute from './route/user.route.js';
 const app = express()
 
 app.use(cors({
-  origin: ["https://book-store-6i9p-m4ttg5u9c-tanujas-projects-e2621438.vercel.app"],
-  methods: "GET, POST, PUT, DELETE, OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
+  origin: ["https://book-store-web-2ydaj0hjs-tanujas-projects-e2621438.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Ensure methods are in array format
+  allowedHeaders: ["Content-Type", "Authorization"],  // Ensure headers are in array format
   credentials: true
 }));
+
 
 app.use(express.json());
 

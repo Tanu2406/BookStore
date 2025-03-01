@@ -22,7 +22,10 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 const URI = process.env.MongoDBURI;
-
+if (!URI) {
+  console.error("MongoDB URI is missing. Check your environment variables.");
+  process.exit(1);
+}
 //Connect to MongoDB
 try{
 mongoose.connect(URI,{
@@ -33,6 +36,7 @@ console.log("Connect to mongoDB")
 
 }catch (error){
     console.log("Error",error)
+    process.exit(1);
 }
 
 app.get('/', (req, res) => {

@@ -9,7 +9,7 @@ import userRoute from './route/user.route.js';
 const app = express()
 
 app.use(cors({
-  origin: "https://book-store-6i9p-4wjg0943m-tanujas-projects-e2621438.vercel.app",
+  origin: "https://book-store-6i9p-3mhbv7r6d-tanujas-projects-e2621438.vercel.app",
   methods: "GET, POST, PUT, DELETE, OPTIONS",
   allowedHeaders: "Content-Type, Authorization",
   credentials: true

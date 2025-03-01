@@ -6,6 +6,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   base: "./",
   plugins: [  tailwindcss(),react(), ],
+  server: {
+    proxy: {
+      "/api": "http://localhost:4001",
+    },
+  },
   build: {
     outDir: 'dist', // Default output directory for Vite builds
   },

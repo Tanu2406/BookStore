@@ -8,7 +8,10 @@ import userRoute from './route/user.route.js';
 
 const app = express()
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://book-store-6i9p-pej1slvq1-tanujas-projects-e2621438.vercel.app/"],
+  credentials: true,
+}));
 app.use(express.json());
 
 dotenv.config();

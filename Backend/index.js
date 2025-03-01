@@ -25,7 +25,10 @@ const URI = process.env.MongoDBURI;
 
 //Connect to MongoDB
 try{
-mongoose.connect(URI);
+mongoose.connect(URI,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 console.log("Connect to mongoDB")
 
 }catch (error){

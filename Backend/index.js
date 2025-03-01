@@ -31,9 +31,9 @@ console.log("Connect to mongoDB")
     console.log("Error",error)
 }
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 //defining route
 app.use("/book",bookRoute);
